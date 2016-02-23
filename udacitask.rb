@@ -13,17 +13,24 @@ todo.add_item("Learn Git")
 todo.print_list
 
 # Delete the first item
+todo.delete_item(1)
 
 # Print the list
+todo.print_list
 
 # Delete the second item
+todo.delete_item(2)
 
 # Print the list
+todo.print_list
 
 # Update the completion status of the first item to complete
+todo.update_status(2)
 
 # Print the list
+todo.print_list
 
 # Update the title of the list
-
+todo.update_title("Things to learn in Ruby")
 # Print the list
+todo.print_list
