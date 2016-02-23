@@ -1,10 +1,16 @@
 require_relative 'todolist.rb'
 
 # Creates a new todo list
+todo = TodoList.new("To learn Ruby")
 
 # Add four new items
+todo.add_item("Learn arrays")
+todo.add_item("Learn classes")
+todo.add_item("Learn loops")
+todo.add_item("Learn Git")
 
 # Print the list
+todo.print_list
 
 # Delete the first item
 
