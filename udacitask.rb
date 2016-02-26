@@ -13,7 +13,7 @@ todo.add_item("Learn Git")
 todo.print_list
 
 # Delete the first item
-todo.delete_item(1)
+todo.delete_item(10)
 
 # Print the list
 todo.print_list
@@ -34,3 +34,6 @@ todo.print_list
 todo.update_title("Things to learn in Ruby")
 # Print the list
 todo.print_list
+
+item = Item.new("Whatsapp")
+item.print_items
