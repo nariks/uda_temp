@@ -31,9 +31,9 @@ todo.update_status(2)
 todo.print_list
 
 # Update the title of the list
-todo.update_title("Things to learn in Ruby")
+todo.update_list_title("Things to learn in Ruby")
 # Print the list
 todo.print_list
 
 item = Item.new("Whatsapp")
-item.print_items
+item.print_item

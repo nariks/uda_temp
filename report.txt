@@ -30,3 +30,35 @@ Things to learn in Ruby
 1  Learn arrays         Completed: [X]
 2  Learn loops          Completed: [✓]
 3  Learn Git            Completed: [X]
+
+To learn Ruby
+===========================================
+1  Learn arrays         Completed: [X]
+2  Learn classes        Completed: [X]
+3  Learn loops          Completed: [X]
+4  Learn Git            Completed: [X]
+
+To learn Ruby
+===========================================
+1  Learn arrays         Completed: [X]
+2  Learn classes        Completed: [X]
+3  Learn loops          Completed: [X]
+4  Learn Git            Completed: [X]
+
+To learn Ruby
+===========================================
+1  Learn arrays         Completed: [X]
+2  Learn loops          Completed: [X]
+3  Learn Git            Completed: [X]
+
+To learn Ruby
+===========================================
+1  Learn arrays         Completed: [X]
+2  Learn loops          Completed: [✓]
+3  Learn Git            Completed: [X]
+
+Things to learn in Ruby
+===========================================
+1  Learn arrays         Completed: [X]
+2  Learn loops          Completed: [✓]
+3  Learn Git            Completed: [X]

@@ -1,1 +1,4 @@
 Feature #1 - Save the list to a file, and load the list file if one already exists.
+Feature #2 - Check item ID validity before deleting or updating status of an item
+Feature #3 - Prints tick mark and cross for completion status instead of true or false.
+ 
