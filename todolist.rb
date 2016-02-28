@@ -6,21 +6,21 @@ class TodoList
     def initialize(list_title)
       @title = list_title
       @items = []
-      @file_name = @title + '.txt'                              #keeps track of file name       
+      @file_name = @title + '.txt'                              #keeps track of file name
     end
 
     #adds new item to the list
     def add_item(new_item)
       item = Item.new(new_item)
       @items.push(item)
-      update_list_file('add', item)             	            #adds new item to text file
+      update_list_file
     end
 
     #delete item from list
     def delete_item(item_id)
       if valid_index?(item_id)                                  #checks if delete index is valid
         @items.delete_at(item_id-1)
-        update_list_file('delete', nil)                         #writes updated list to file
+        update_list_file
       else
         puts " \nInvalid item id. Delete cancelled"
       end
@@ -29,34 +29,35 @@ class TodoList
     #updates item status
     def update_status(item_id)
       if valid_index?(item_id)                                  #checks if index is valid
-        @items[item_id-1].status = !@items[item_id-1].status
-        update_list_file('update', nil)                         #writes updated list to file
+        @items[item_id-1].update_status
+        update_list_file
       else
         puts "Invalid item id. Update cancelled"
       end
     end
 
     #rename the title of the list
-    def update_list_title(new_title)      
-      @title_old = @title
+    def update_list_title(new_title)
+      title_old = @title
       @title = new_title
       @file_name = new_title + '.txt'
 
+
       #update list name in the file
-      File.rename(@title_old + '.txt', @file_name)               #change file name to new list name
+      File.rename(title_old + '.txt', @file_name)               #change file name to new list name
       data = File.read(@file_name)
-      new_data = data.gsub(@title_old,@title)                    #replace old list title with new title
+      new_data = data.gsub(title_old,@title)                    #replace old list title with new title
       File.open(@file_name, "w") do |f|
         f.write(new_data)
       end
     end
-    
+
     #print the contents of the list from the list file after checking if it exists
     def print_list
-        if File.file?(@file_name)                               
-          report_file = File.open(@file_name,"r")               
+        if File.file?(@file_name)
+          report_file = File.open(@file_name,"r")
           report_file.each_line do |line|
-            puts line.force_encoding('utf-8') 
+            puts line.force_encoding('utf-8')
           end
           report_file.close
         else
@@ -64,29 +65,19 @@ class TodoList
         end
      end
 
-    # to check if the item_id exists in the list and returns a boolean 
+    # to check if the item_id exists in the list and returns a boolean
     def valid_index?(item_id)
       @items.length >= item_id
     end
 
-    #Writes added item to EOF or re-writes list after delete operation
-    #if adding first item or performaing a delete or update status operation, rewrite list file 
-    #else append new list item to the end
-    def update_list_file(operation, item)
-      if @items.length == 1 || operation == 'delete' || operation == 'update'
-        report_file = File.new(@file_name,"w+")
-        report_file.write("\n#{@title}\n")
-        report_file.write("===========================================\n")
-        @items.each_with_index do |item, index|
-          #convert the completion status from boolean into tickmark  or cross
-          status = item.status ? "[\u2713]" : "[X]"   
-          item_detail = sprintf("%-2s %-20s Completed: %s\n", index+1, item.description, status)
-          report_file.write(item_detail)
-        end
-      else
-        report_file = File.open(@file_name, "a+")
-        item_detail = sprintf("%-2s %-20s Completed: %s\n", @items.length, item.description, "[X]")
-        report_file.write(item_detail)
+    #updates list text file contents
+    def update_list_file
+      report_file = File.new(@file_name,"w+")
+      report_file.write("\n#{@title}\n======================================\n")
+      @items.each_with_index do |item, index|
+        #convert the completion status from boolean into tickmark  or cross
+        status = item.status ? "[\u2713]" : "[X]"
+        report_file.write(item.print_item(index, status))
       end
       report_file.close
     end
@@ -102,10 +93,10 @@ class Item
     end
 
     def update_status
-    	@status = !status
+    	@status = !@status
     end
 
-    def print_details
-      printf "\n %-20s Completed: %s\n", @description, @status
+    def print_item(index, status)
+      sprintf("%-2s %-20s Completed: %s\n", index, @description, status)
     end
 end

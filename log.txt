@@ -1,3 +1,9 @@
+commit 950bac13b859430d4b1b1488ab417b37ff79adcb
+Author: Narayan Durairaj <narayand@gmail.com>
+Date:   Sun Feb 28 17:29:47 2016 +1100
+
+    Updated the update_list_title method to change the name of the list in the file by doing a search and replace. Also added a update_status method for Item class
+
 commit 43ac91d3f62cacdb3f51d69108cd8a2ffc5d1162
 Author: Narayan Durairaj <narayand@gmail.com>
 Date:   Sun Feb 28 14:10:13 2016 +1100

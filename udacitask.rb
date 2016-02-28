@@ -35,4 +35,3 @@ todo.update_list_title("Things to learn in Ruby")
 
 # Print the list
 todo.print_list
-
