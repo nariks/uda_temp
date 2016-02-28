@@ -6,20 +6,14 @@ class TodoList
     def initialize(list_title)
       @title = list_title
       @items = []
-      @file_name = @title + '.txt'                              #keeps track of file name 
+      @file_name = @title + '.txt'                              #keeps track of file name       
     end
 
-    #rename the title of the list
-    def update_list_title(new_title)
-      File.rename(@file_name, new_title + '.txt')               #change file name to new list name
-      @title = new_title
-    end
-
-    #adds new item to the list.
+    #adds new item to the list
     def add_item(new_item)
       item = Item.new(new_item)
       @items.push(item)
-      update_todolist_file('add', item)                         #adds new item to text file
+      update_list_file('add', item)             	            #adds new item to text file
     end
 
     #delete item from list
@@ -42,6 +36,21 @@ class TodoList
       end
     end
 
+    #rename the title of the list
+    def update_list_title(new_title)      
+      @title_old = @title
+      @title = new_title
+      @file_name = new_title + '.txt'
+
+      #update list name in the file
+      File.rename(@title_old + '.txt', @file_name)               #change file name to new list name
+      data = File.read(@file_name)
+      new_data = data.gsub(@title_old,@title)                    #replace old list title with new title
+      File.open(@file_name, "w") do |f|
+        f.write(new_data)
+      end
+    end
+    
     #print the contents of the list from the list file after checking if it exists
     def print_list
         if File.file?(@file_name)                               
@@ -53,7 +62,7 @@ class TodoList
         else
           puts ("No such list file exists")
         end
-      end
+     end
 
     # to check if the item_id exists in the list and returns a boolean 
     def valid_index?(item_id)
@@ -63,14 +72,14 @@ class TodoList
     #Writes added item to EOF or re-writes list after delete operation
     #if adding first item or performaing a delete or update status operation, rewrite list file 
     #else append new list item to the end
-    def update_todolist_file(operation, item)
+    def update_list_file(operation, item)
       if @items.length == 1 || operation == 'delete' || operation == 'update'
         report_file = File.new(@file_name,"w+")
         report_file.write("\n#{@title}\n")
         report_file.write("===========================================\n")
         @items.each_with_index do |item, index|
           #convert the completion status from boolean into tickmark  or cross
-          status = item.status ? " \u2713" : "[X]"   
+          status = item.status ? "[\u2713]" : "[X]"   
           item_detail = sprintf("%-2s %-20s Completed: %s\n", index+1, item.description, status)
           report_file.write(item_detail)
         end
@@ -92,7 +101,11 @@ class Item
       @status = false
     end
 
-    def print_item
+    def update_status
+    	@status = !status
+    end
+
+    def print_details
       printf "\n %-20s Completed: %s\n", @description, @status
     end
 end

@@ -1,0 +1,5 @@
+
+Things to learn in Ruby
+===========================================
+1  Learn classes        Completed: [✓]
+2  Learn Git            Completed: [X]

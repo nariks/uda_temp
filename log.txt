@@ -1,0 +1,35 @@
+commit 43ac91d3f62cacdb3f51d69108cd8a2ffc5d1162
+Author: Narayan Durairaj <narayand@gmail.com>
+Date:   Sun Feb 28 14:10:13 2016 +1100
+
+    Updated valid_index method, and combined R/W of list contents to update_list_file
+
+commit 9fb011c0db4ed336767b194017b1fffd18506cb1
+Author: Narayan Durairaj <narayand@gmail.com>
+Date:   Sun Feb 28 07:36:40 2016 +1100
+
+    Added methods to write to a file when an item is added or deleted from the list
+
+commit f131cc5fe3ad0356faae7db0f874df0b29f60910
+Author: Narayan Durairaj <narayand@gmail.com>
+Date:   Fri Feb 26 18:13:55 2016 +1100
+
+    New features -  saving to a file and checking index validity added
+
+commit 0e6da57c66ac5ab70a2feff9aa85bc6c7f60360d
+Author: Narayan Durairaj <narayand@gmail.com>
+Date:   Wed Feb 24 00:09:07 2016 +1100
+
+    Added methods update_status and update_title
+
+commit e2eb3f7508cf314dae60451fb0a916a1a5fe2c67
+Author: Narayan Durairaj <narayand@gmail.com>
+Date:   Tue Feb 23 22:11:13 2016 +1100
+
+    Added methods add_item, print_list and delete_items
+
+commit 8e096d42f34353a7df729369d1eafff4e09e054b
+Author: Narayan Durairaj <narayand@gmail.com>
+Date:   Mon Feb 22 22:36:10 2016 +1100
+
+    Initial repo

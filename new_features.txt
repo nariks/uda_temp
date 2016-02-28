@@ -1,4 +1,8 @@
 Feature #1 - Save the list to a file when new item is added, update the file when an item is deleted or item status is changed, and prints from the file when print_list is requested after checking file exists.
-Feature #2 - Check item ID validity before deleting or updating status of an item
-Feature #3 - Prints tick mark and cross for completion status instead of true or false.
+
+Feature #2 - Check item ID(index) validity to see if it exists before deleting or updating status of an item.
+
+Feature #3 - Prints tick mark and cross for completion status instead of true or false for better readability of the list.
+
+
  
