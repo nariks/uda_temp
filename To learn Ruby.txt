@@ -1,7 +1,0 @@
-
-To learn Ruby
-===========================================
-1  Learn arrays         Completed: [X]
-2  Learn loops          Completed: [X]
-3  Learn Git            Completed: [X]
-4  Learn Git            Completed: [X]
