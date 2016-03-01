@@ -1,3 +1,9 @@
+commit 306d6e41cc7af86e8954966b679264ae8ff1b064
+Author: Narayan Durairaj <narayand@gmail.com>
+Date:   Mon Feb 29 00:20:17 2016 +1100
+
+    Changed code to use print_item & update status methods in Item class. Changed @title_old to local variable. Modified update_list_file method in todolist class to rewrite file for all conditions
+
 commit 950bac13b859430d4b1b1488ab417b37ff79adcb
 Author: Narayan Durairaj <narayand@gmail.com>
 Date:   Sun Feb 28 17:29:47 2016 +1100
